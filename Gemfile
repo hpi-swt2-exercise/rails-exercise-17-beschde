@@ -9,6 +9,7 @@ gem 'sqlite3'
 # gem 'therubyracer', platforms: :ruby
 
 group :development, :test do
+  gem 'rspec', '~> 3.3'
   gem 'rspec-rails', '~> 3.3'
   gem 'capybara', '~> 2.5'
   gem 'factory_girl_rails', '~> 4.5'
