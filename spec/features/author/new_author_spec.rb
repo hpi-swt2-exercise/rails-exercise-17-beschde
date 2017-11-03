@@ -23,6 +23,6 @@ describe 'New author page', type: :feature do
   it 'should have a submit button' do
     visit new_author_path
 
-    expect(page).to have_selector "input[type=submit][value='Save Author']"
+    expect(page).to have_css "input[type=submit][value='Save Author']"
   end
 end
