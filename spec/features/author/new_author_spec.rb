@@ -27,5 +27,16 @@ describe 'New author page', type: :feature do
     it 'should have a submit button' do
       expect(page).to have_css("input[type=submit][value='Save Author']")
     end
+
+    it 'should save the new author' do
+      fill_in 'First name', with: 'Alan'
+      fill_in 'Last name', with: 'Turing'
+      fill_in 'Homepage', with: 'http://wikipedia.org/Alan_Turing'
+      find('input[type=submit]').click
+
+      author = Author.find_by(first_name: 'Alan', last_name: 'Turing', homepage: 'http://wikipedia.org/Alan_Turing')
+
+      expect(author).to_not be_nil
+    end
   end
 end
