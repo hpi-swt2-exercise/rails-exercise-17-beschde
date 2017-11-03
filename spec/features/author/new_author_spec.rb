@@ -12,6 +12,12 @@ describe 'New author page', type: :feature do
     expect(page).to have_text 'New Author'
   end
 
+  it 'should have a form that can create an author' do
+    visit new_author_path
+
+    expect(page).to have_css("form[action='#{authors_path}'][method=post]")
+  end
+
   it 'should have text input for first name, last name, and homepage' do
     visit new_author_path
 
