@@ -21,4 +21,8 @@ describe 'Author page', type: :feature do
     end
   end
 =end
+
+  after :all do
+    Author.destroy_all
+  end
 end
