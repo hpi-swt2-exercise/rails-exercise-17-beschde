@@ -1,4 +1,4 @@
-require 'rspec'
+require 'rails_helper'
 
 describe 'Author page', type: :feature do
 
