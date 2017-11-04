@@ -3,7 +3,7 @@ require 'rspec'
 describe 'Author page', type: :feature do
 
   before :all do
-    @alan = FactoryGirl.create :author
+    @alan = create(:author)
   end
 
   it 'should render without error' do
@@ -16,7 +16,7 @@ describe 'Author page', type: :feature do
       visit author_path(@alan)
     end
 
-    it 'should do things' do
+    it 'should display author details' do
 
     end
   end
