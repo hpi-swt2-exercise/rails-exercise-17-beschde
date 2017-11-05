@@ -20,6 +20,15 @@ describe 'New paper page' do
       expect(page).to have_css('input[type=submit]')
     end
 
-    it 'should save the paper'
+    it 'should save the new paper' do
+      fill_in 'Title', with: 'A title'
+      fill_in 'Venue', with: 'A venue'
+      fill_in 'Year', with: '2017'
+      submit_form
+
+      paper = Paper.find_by(title: 'A title', venue: 'A venue', year: 2017)
+
+      expect(paper).to_not be_nil
+    end
   end
 end
