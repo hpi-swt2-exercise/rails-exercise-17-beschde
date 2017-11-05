@@ -32,7 +32,7 @@ describe 'New author page', type: :feature do
       fill_in 'First name', with: 'Alan'
       fill_in 'Last name', with: 'Turing'
       fill_in 'Homepage', with: 'http://wikipedia.org/Alan_Turing'
-      find('input[type=submit]').click
+      submit_form
 
       author = Author.find_by(first_name: 'Alan', last_name: 'Turing', homepage: 'http://wikipedia.org/Alan_Turing')
 

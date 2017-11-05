@@ -29,7 +29,7 @@ describe 'Edit author page', type: :feature do
       fill_in 'First name', with: 'Marie'
       fill_in 'Last name', with: 'Curie'
       fill_in 'Homepage', with: 'https://en.wikipedia.org/wiki/Marie_Curie'
-      find('input[type=submit]').click
+      submit_form
 
       marie = @alan.reload
       expect(marie.first_name).to eq('Marie')
