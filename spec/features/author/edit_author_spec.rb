@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Author edit page', type: :feature do
+describe 'Edit author page', type: :feature do
 
   before :all do
     @alan = create(:author)
@@ -25,6 +25,13 @@ describe 'Author edit page', type: :feature do
       expect(marie.first_name).to eq('Marie')
       expect(marie.last_name).to eq('Curie')
       expect(marie.homepage).to eq('https://en.wikipedia.org/wiki/Marie_Curie')
+    end
+
+    it 'should show validation errors' do
+      fill_in 'Last name', with: ''
+      find('input[type=submit]').click
+
+      expect(page).to have_text("Last name can't be blank")
     end
 
     it 'should link back to the author index page' do
