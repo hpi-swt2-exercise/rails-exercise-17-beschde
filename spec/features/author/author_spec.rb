@@ -30,7 +30,13 @@ describe 'Author page', type: :feature do
     end
 
     it 'should have a link to delete that author' do
-      expect(page).to have_css("a[href='#{author_path(@alan)}'][method=delete]")
+      expect(page).to have_css("a[href='#{author_path(@alan)}'][data-method='delete']", text: 'Destroy')
+    end
+
+    it 'should delete the author when destroy is clicked' do
+      click_link 'Destroy'
+      author = Author.find(id: @alan.id)
+      expect(author).to be_nil
     end
 
     it 'should link back to the author index page' do
