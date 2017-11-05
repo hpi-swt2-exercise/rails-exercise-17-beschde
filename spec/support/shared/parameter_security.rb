@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 shared_examples 'parameter security' do |method_name ,form_name, attributes|
   it "should filter #{form_name.to_s} parameters" do
     filtered = double()
