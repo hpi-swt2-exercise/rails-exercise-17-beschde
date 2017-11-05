@@ -34,11 +34,11 @@ describe 'Author index page', type: :feature do
         expect(page).to have_xpath("//table/tr/td[contains(., '#{@alan.homepage}')]")
       end
 
-      it 'should link to that authors page' do
+      it 'should have a link to that authors page' do
         expect(page).to have_link('Show', href: author_path(@alan))
       end
 
-      it 'should link to that authors edit page' do
+      it 'should have a link to that authors edit page' do
         expect(page).to have_link('Edit', href: edit_author_path(@alan))
       end
 
