@@ -46,5 +46,9 @@ describe 'New author page', type: :feature do
 
       expect(page).to have_text("Last name can't be blank")
     end
+
+    it 'should link back to the author index page' do
+      expect(page).to have_link('Back', href: authors_path)
+    end
   end
 end

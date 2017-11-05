@@ -26,6 +26,10 @@ describe 'Author edit page', type: :feature do
       expect(marie.last_name).to eq('Curie')
       expect(marie.homepage).to eq('https://en.wikipedia.org/wiki/Marie_Curie')
     end
+
+    it 'should link back to the author index page' do
+      expect(page).to have_link('Back', href: authors_path)
+    end
   end
 
   after :all do
