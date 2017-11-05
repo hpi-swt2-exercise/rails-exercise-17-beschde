@@ -43,7 +43,7 @@ describe 'Author index page', type: :feature do
       end
 
       it 'should link to delete that author' do
-        expect(page).to have_link('Destroy', href: author_path(@alan), method: :delete)
+        expect(page).to have_css("a[href='#{author_path(@alan)}'][method=delete]")
       end
 
       after :all do
