@@ -25,6 +25,10 @@ describe 'Paper page', type: :feature do
       expect(page).to have_text("Year: #{@paper.year.to_s}")
     end
 
+    it 'should have a link to the paper edit page' do
+      expect(page).to have_link('Edit', href: edit_paper_path(@paper))
+    end
+
     it 'should link back to the paper index page' do
       expect(page).to have_link('Back', href: papers_path)
     end

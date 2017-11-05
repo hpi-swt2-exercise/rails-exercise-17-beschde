@@ -36,7 +36,11 @@ describe 'Paper index page', type: :feature do
         expect(page).to have_xpath("//table/tr/td[contains(., '#{@paper.year}')]")
       end
 
-      it 'should link to that papers page' do
+      it 'should have a link to that papers edit page' do
+        expect(page).to have_link('Edit', href: edit_paper_path(@paper))
+      end
+
+      it 'should have a link to that papers page' do
         expect(page).to have_link('Show', href: paper_path(@paper))
       end
 
