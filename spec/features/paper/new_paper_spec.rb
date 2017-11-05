@@ -19,5 +19,7 @@ describe 'New paper page' do
     it 'should have a submit button' do
       expect(page).to have_css('input[type=submit]')
     end
+
+    it 'should save the paper'
   end
 end
