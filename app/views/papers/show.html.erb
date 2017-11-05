@@ -1,2 +1,18 @@
-<h1>Papers#show</h1>
-<p>Find me in app/views/papers/show.html.erb</p>
+<h1>Paper: <%= @paper.title %></h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @paper.title %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @paper.venue %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @paper.year.to_s %>
+</p>
+
+<%= link_to 'Back', papers_path %>
