@@ -15,6 +15,16 @@ describe 'Edit author page', type: :feature do
       visit edit_author_path(@alan)
     end
 
+    it 'should have text input for first name, last name, and homepage' do
+      expect(page).to have_field('First name')
+      expect(page).to have_field('Last name')
+      expect(page).to have_field('Homepage')
+    end
+
+    it 'should have a submit button' do
+      expect(page).to have_css('input[type=submit]')
+    end
+
     it 'should save changes to the author details' do
       fill_in 'First name', with: 'Marie'
       fill_in 'Last name', with: 'Curie'
