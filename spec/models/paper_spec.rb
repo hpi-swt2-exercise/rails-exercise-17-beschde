@@ -6,6 +6,9 @@ describe Paper, type: :model do
   end
 
   it 'should have a title, venue and year' do
-    paper
+    paper = Paper.new(title: 'A paper', venue: 'A venue', year: 2017)
+    expect(paper.title).to eq('A paper')
+    expect(paper.venue).to eq('A venue')
+    expect(paper.year).to eq(2017)
   end
 end
