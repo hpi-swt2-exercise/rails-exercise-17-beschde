@@ -35,7 +35,7 @@ describe 'Author page', type: :feature do
 
     it 'should delete the author when destroy is clicked' do
       click_link 'Destroy'
-      author = Author.find(id: @alan.id)
+      author = Author.find_by(id: @alan.id)
       expect(author).to be_nil
     end
 
