@@ -1,4 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe PapersController, type: :controller do
+describe PapersController, type: :controller do
+  describe '#paper_params' do
+    include_examples 'parameter security', :paper_params, :paper, [:title, :venue, :year]
+  end
 end
