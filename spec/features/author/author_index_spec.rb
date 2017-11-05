@@ -14,6 +14,10 @@ describe 'Author index page', type: :feature do
       expect(page).to have_xpath("//h1[contains(., 'Authors')]")
     end
 
+    it 'should have a link to the add author page' do
+      expect(page).to have_link('Add author', href: new_author_path)
+    end
+
     it 'should contain a table header' do
       expect(page).to have_xpath("//table/tr/th[contains(., 'Name')]")
       expect(page).to have_xpath("//table/tr/th[contains(., 'Homepage')]")
