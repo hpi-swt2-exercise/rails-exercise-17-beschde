@@ -24,6 +24,10 @@ describe 'Author page', type: :feature do
       expect(page).to have_text('Last name: Turing')
       expect(page).to have_text('Homepage: https://en.wikipedia.org/wiki/Alan_Turing')
     end
+
+    it 'should link back to the author index page' do
+      expect(page).to have_link('Back', href: authors_path)
+    end
   end
 
   after :all do
