@@ -21,6 +21,7 @@ describe 'Author index page', type: :feature do
     it 'should contain a table header' do
       expect(page).to have_xpath("//table/tr/th[contains(., 'Name')]")
       expect(page).to have_xpath("//table/tr/th[contains(., 'Homepage')]")
+      expect(page).to have_xpath("//table/tr/th[contains(., 'Actions')]")
     end
 
     context 'given an author' do
