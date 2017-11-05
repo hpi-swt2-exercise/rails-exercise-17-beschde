@@ -25,7 +25,7 @@ describe 'New author page', type: :feature do
     end
 
     it 'should have a submit button' do
-      expect(page).to have_css("input[type=submit][value='Save Author']")
+      expect(page).to have_css('input[type=submit]')
     end
 
     it 'should save the new author' do
