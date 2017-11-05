@@ -38,5 +38,14 @@ describe 'New author page', type: :feature do
 
       expect(author).to_not be_nil
     end
+
+    it 'should show validation errors' do
+      fill_in 'First name', with: 'Alan'
+      fill_in 'Homepage', with: 'http://wikipedia.org/Alan_Turing'
+      find('input[type=submit]').click
+
+      expect(current_path).to eq(new_author_path)
+      expect(page).to have_content("last name can't be blank")
+    end
   end
 end
