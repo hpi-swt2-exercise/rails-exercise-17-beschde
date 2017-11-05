@@ -23,11 +23,23 @@ describe 'Author index page', type: :feature do
       expect(page).to have_xpath("//table/tr/th[contains(., 'Homepage')]")
     end
 
-    it 'should list authors in a table' do
-      create(:author)
-      visit authors_path
-      expect(page).to have_xpath("//table/tr/td[contains(., 'Alan Turing')]")
-      expect(page).to have_xpath("//table/tr/td[contains(., 'http://wikipedia.de/Alan_Turing')]")
+    context 'given an author' do
+      before :all do
+        @alan = create(:author)
+      end
+
+      it 'should list authors in a table' do
+        expect(page).to have_xpath("//table/tr/td[contains(., '#{@alan.name}')]")
+        expect(page).to have_xpath("//table/tr/td[contains(., '#{@alan.homepage}')]")
+      end
+
+      it 'should link to that authors page' do
+        expect(page).to have_link('Show', href: author_path(@alan))
+      end
+
+      after :all do
+        Author.destroy_all
+      end
     end
   end
 end
