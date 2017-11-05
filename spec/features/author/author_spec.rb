@@ -22,7 +22,7 @@ describe 'Author page', type: :feature do
     it 'should display author details' do
       expect(page).to have_text('First name: Alan')
       expect(page).to have_text('Last name: Turing')
-      expect(page).to have_text('Homepage: http://wikipedia.de/Alan_Turing')
+      expect(page).to have_text('Homepage: https://en.wikipedia.org/wiki/Alan_Turing')
     end
   end
 
