@@ -22,7 +22,7 @@ describe 'Paper page', type: :feature do
     it 'should display paper details' do
       expect(page).to have_text("Title: #{@paper.title}")
       expect(page).to have_text("Venue: #{@paper.venue}")
-      expect(page).to have_text("Year: #{@paper.year.to_s}")
+      expect(page).to have_text("Year: #{@paper.year}")
     end
 
     it 'should have a link to the paper edit page' do
