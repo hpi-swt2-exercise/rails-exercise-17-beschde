@@ -36,6 +36,9 @@ class PapersController < ApplicationController
 
   def destroy
     @paper = Paper.find(params[:id])
+
+    @paper.delete
+    redirect_to papers_path
   end
 
   private
