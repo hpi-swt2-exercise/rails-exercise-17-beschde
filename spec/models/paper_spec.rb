@@ -15,6 +15,16 @@ describe Paper, type: :model do
       paper = Paper.new(title: '', venue: 'A venue', year: 2017)
       expect(paper).to_not be_valid
     end
+
+    it 'should not be valid without a venue' do
+      paper = Paper.new(title: 'A paper', year: 2017)
+      expect(paper).to_not be_valid
+    end
+
+    it 'should not be valid with an empty venue' do
+      paper = Paper.new(title: 'A paper', venue: '', year: 2017)
+      expect(paper).to_not be_valid
+    end
   end
 
   it 'should have a title, venue and year' do
