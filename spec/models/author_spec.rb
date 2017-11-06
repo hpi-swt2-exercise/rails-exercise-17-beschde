@@ -24,6 +24,12 @@ describe Author, type: :model do
     expect(author.homepage).to eq('https://en.wikipedia.org/wiki/Alan_Turing')
   end
 
+  it 'should have an initially empty list of papers' do
+    expect(@author.papers).to_not be_nil
+    expect(@author.papers).to be_empty
+    expect(@author.papers).to be_a(Array)
+  end
+
   it 'should return the full name on #name' do
     expect(@author.name).to eq('Alan Turing')
   end

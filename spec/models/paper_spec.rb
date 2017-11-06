@@ -53,4 +53,10 @@ describe Paper, type: :model do
     expect(paper.venue).to eq('A venue')
     expect(paper.year).to eq(2017)
   end
+
+  it 'should have an initially empty list of authors' do
+    expect(@paper.authors).to_not be_nil
+    expect(@paper.authors).to be_empty
+    expect(@paper.authors).to be_a(Array)
+  end
 end
