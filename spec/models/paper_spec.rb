@@ -57,6 +57,6 @@ describe Paper, type: :model do
   it 'should have an initially empty list of authors' do
     expect(@paper.authors).to_not be_nil
     expect(@paper.authors).to be_empty
-    expect(@paper.authors).to be_a(Array)
+    expect(@paper.authors).to eq([])
   end
 end

@@ -27,7 +27,7 @@ describe Author, type: :model do
   it 'should have an initially empty list of papers' do
     expect(@author.papers).to_not be_nil
     expect(@author.papers).to be_empty
-    expect(@author.papers).to be_a(Array)
+    expect(@author.papers).to eq([])
   end
 
   it 'should return the full name on #name' do
