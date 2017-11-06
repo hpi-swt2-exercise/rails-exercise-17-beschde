@@ -29,6 +29,16 @@ describe 'Paper page', type: :feature do
       expect(page).to have_link('Edit', href: edit_paper_path(@paper))
     end
 
+    it 'should have a link to delete that paper' do
+      expect(page).to have_css("a[href='#{paper_path(@paper)}'][data-method='delete']", text: 'Destroy')
+    end
+
+    it 'should delete the paper when destroy is clicked' do
+      click_link 'Destroy'
+      paper = Paper.find_by(id: @paper.id)
+      expect(paper).to be_nil
+    end
+
     it 'should link back to the paper index page' do
       expect(page).to have_link('Back', href: papers_path)
     end

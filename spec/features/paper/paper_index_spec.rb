@@ -44,6 +44,10 @@ describe 'Paper index page', type: :feature do
         expect(page).to have_link('Show', href: paper_path(@paper))
       end
 
+      it 'should have a link to delete that paper' do
+        expect(page).to have_css("a[href='#{paper_path(@paper)}'][data-method='delete']", text: 'Destroy')
+      end
+
       after :all do
         Paper.destroy_all
       end
