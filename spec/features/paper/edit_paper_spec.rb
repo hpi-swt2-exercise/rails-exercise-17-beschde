@@ -24,9 +24,9 @@ describe 'Edit paper page', type: :feature do
       submit_form
 
       im = @paper.reload
-      expect(im.first_name).to eq('Intelligent machinery')
-      expect(im.last_name).to eq('Oxford University Press')
-      expect(im.homepage).to eq('1948')
+      expect(im.title).to eq('Intelligent machinery')
+      expect(im.venue).to eq('Oxford University Press')
+      expect(im.year).to eq(1948)
     end
   end
 
