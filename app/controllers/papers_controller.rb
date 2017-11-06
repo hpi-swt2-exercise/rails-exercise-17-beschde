@@ -26,6 +26,12 @@ class PapersController < ApplicationController
 
   def update
     @paper = Paper.find(params[:id])
+
+    if @paper.update(paper_params)
+      redirect_to @paper
+    else
+      render 'edit'
+    end
   end
 
   def destroy
