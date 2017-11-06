@@ -5,7 +5,7 @@ describe Author, type: :model do
     @author = build(:author)
   end
 
-  context 'when creating' do
+  context 'once created' do
     it 'should not be valid without a last name' do
       author = Author.new(first_name: 'Alan', homepage: 'https://en.wikipedia.org/wiki/Alan_Turing')
       expect(author).to_not be_valid
