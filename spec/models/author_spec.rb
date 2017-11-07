@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Author, type: :model do
   before :each do
-    @author = build(:author)
+    @author = Author.new(first_name: 'Alan', last_name: 'Turing', homepage: 'https://en.wikipedia.org/wiki/Alan_Turing')
   end
 
   context 'once created' do
@@ -18,10 +18,9 @@ describe Author, type: :model do
   end
 
   it 'should have a first name, last name and homepage' do
-    author = Author.new(first_name: 'Alan', last_name: 'Turing', homepage: 'https://en.wikipedia.org/wiki/Alan_Turing')
-    expect(author.first_name).to eq('Alan')
-    expect(author.last_name).to eq('Turing')
-    expect(author.homepage).to eq('https://en.wikipedia.org/wiki/Alan_Turing')
+    expect(@author.first_name).to eq('Alan')
+    expect(@author.last_name).to eq('Turing')
+    expect(@author.homepage).to eq('https://en.wikipedia.org/wiki/Alan_Turing')
   end
 
   it 'should have an initially empty list of papers' do
