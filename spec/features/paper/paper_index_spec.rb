@@ -50,6 +50,7 @@ describe 'Paper index page', type: :feature do
 
       after :all do
         Paper.destroy_all
+        Author.destroy_all
       end
     end
   end
