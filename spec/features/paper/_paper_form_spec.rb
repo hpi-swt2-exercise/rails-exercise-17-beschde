@@ -57,6 +57,12 @@ shared_examples 'a paper form' do
     end
   end
 
+  it 'should have 5 selects for 5 authors' do
+    (1..5).each do |num|
+      expect(page).to have_select("Author #{num}")
+    end
+  end
+
   it 'should have a submit button' do
     expect(page).to have_css('input[type=submit]')
   end
