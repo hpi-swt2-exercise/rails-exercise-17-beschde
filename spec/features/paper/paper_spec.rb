@@ -42,6 +42,11 @@ describe 'Paper page', type: :feature do
     it 'should link back to the paper index page' do
       expect(page).to have_link('Back', href: papers_path)
     end
+
+    it 'should list the papers authors' do
+      expect(page).to have_text(/Authors:.*#{@paper.authors.first.name}/)
+      expect(page).to have_xpath("//ul/li[contains(., '#{@paper.authors.first.name}')]")
+    end
   end
 
   after :all do
