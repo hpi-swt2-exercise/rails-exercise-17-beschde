@@ -56,7 +56,7 @@ describe 'Paper index page', type: :feature do
 
         visit papers_path(year: @paper.year + 1)
         expect(page).to_not have_text(@paper.title)
-        expect(page).to_not have_text('A paper')
+        expect(page).to have_text('A paper')
       end
 
       after :all do
