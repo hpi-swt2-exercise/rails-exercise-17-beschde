@@ -32,7 +32,7 @@ shared_examples 'a paper form' do
       fill_in 'Year', with: ''
       find('input[type=submit]').click
 
-      expect(page).to have_text("Year can't be blank")
+      expect(page).to have_text('Year is not a number')
     end
 
     example 'when the year is not a number' do
