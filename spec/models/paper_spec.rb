@@ -62,6 +62,6 @@ describe Paper, type: :model do
   it 'should have a scope of the year the paper was published in' do
     @paper.save
 
-    expect(Paper.published_in_year(@paper.year)).to include(@paper)
+    expect(Paper.published_in(@paper.year)).to include(@paper)
   end
 end
