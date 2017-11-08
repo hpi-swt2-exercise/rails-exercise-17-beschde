@@ -31,8 +31,12 @@ describe 'Edit paper page', type: :feature do
       expect(@paper.year).to eq(1948)
     end
 
+    it 'should select the papers authors' do
+      expect(page).to have_select('Author 1', selected: @alan.name)
+    end
+
     it 'should save changes to the papers authors' do
-      select(@peter.name, from: 'Author 1')
+      select @peter.name, from: 'Author 1'
       submit_form
 
       @paper.reload
