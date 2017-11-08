@@ -7,6 +7,7 @@ describe 'New paper page' do
 
   context 'once rendered' do
     before :each do
+      @author = create(:author)
       visit new_paper_path
     end
 
@@ -16,11 +17,13 @@ describe 'New paper page' do
       fill_in 'Title', with: 'A title'
       fill_in 'Venue', with: 'A venue'
       fill_in 'Year', with: '2017'
+      select(@author.name, from: 'Author 1')
       submit_form
 
       paper = Paper.find_by(title: 'A title', venue: 'A venue', year: 2017)
 
       expect(paper).to_not be_nil
+      expect(paper.authors).to contain_exactly(@author)
     end
   end
 end

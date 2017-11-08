@@ -4,6 +4,8 @@ describe 'Edit paper page', type: :feature do
 
   before :all do
     @paper = create(:paper)
+    @alan = @paper.authors.first
+    @peter = create(:author, first_name: 'Peter', last_name: 'Plagiarist')
   end
 
   it 'should render without error' do
@@ -23,10 +25,18 @@ describe 'Edit paper page', type: :feature do
       fill_in 'Year', with: '1948'
       submit_form
 
-      im = @paper.reload
-      expect(im.title).to eq('Intelligent machinery')
-      expect(im.venue).to eq('Oxford University Press')
-      expect(im.year).to eq(1948)
+      @paper.reload
+      expect(@paper.title).to eq('Intelligent machinery')
+      expect(@paper.venue).to eq('Oxford University Press')
+      expect(@paper.year).to eq(1948)
+    end
+
+    it 'should save changes to the papers authors' do
+      select(@peter.name, from: 'Author 1')
+      submit_form
+
+      @paper.reload
+      expect(@paper.authors).to contain_exactly(@peter)
     end
   end
 
