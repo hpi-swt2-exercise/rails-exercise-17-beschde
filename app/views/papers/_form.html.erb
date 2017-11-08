@@ -24,6 +24,19 @@
       <%= f.label :year %><br/>
       <%= f.text_field :year %>
     </p>
+    <% (1..5).each do |num|
+      label = :"author_#{num}"
+    %>
+        <p>
+          <%= f.label label %><br/>
+          <%= f.collection_select label,
+                                  Author.all,
+                                  :id,
+                                  :name,
+                                  {selected: @paper.author_ids[num], include_blank: '(none)'},
+                                  {name: 'paper[author_ids][]'} %>
+        </p>
+    <% end %>
     <p>
       <%= f.submit %>
     </p>
