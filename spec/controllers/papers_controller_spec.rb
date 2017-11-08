@@ -5,6 +5,6 @@ describe PapersController, type: :controller do
     include_examples 'parameter security',
                      method: :paper_params,
                      form: :paper,
-                     attributes: %i[title venue year author_ids]
+                     attributes: [:title, :venue, :year, { author_ids: [] }]
   end
 end
