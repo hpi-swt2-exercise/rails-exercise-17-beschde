@@ -48,6 +48,17 @@ describe 'Paper index page', type: :feature do
         expect(page).to have_css("a[href='#{paper_path(@paper)}'][data-method='delete']", text: 'Destroy')
       end
 
+      it 'should allow to filter by year' do
+        visit papers_path(year: @paper.year)
+        expect(page).to have_text(@paper.title)
+
+        create(:paper, title: 'A paper', year: @paper.year + 1)
+
+        visit papers_path(year: @paper.year + 1)
+        expect(page).to_not have_text(@paper.title)
+        expect(page).to_not have_text('A paper')
+      end
+
       after :all do
         Paper.destroy_all
         Author.destroy_all
