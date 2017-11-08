@@ -58,4 +58,10 @@ describe Paper, type: :model do
     expect(@paper.authors).to be_empty
     expect(@paper.authors).to eq([])
   end
+
+  it 'should have a scope of the year the paper was published in' do
+    @paper.save
+
+    expect(Paper.published_in_year(@paper.year)).to include(@paper)
+  end
 end
